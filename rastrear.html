@@ -127,9 +127,10 @@
                         </strong>
                     </h3>
                     <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-7">
-                        <strong id="dateLabel">
-                            description
-                        </strong>
+                        <div id="dateLabel"></div>
+                        <strong id="trackLabel"></strong>
+                        <div id="guideLabel"></div>
+                        <div id="infoLabel"></div>
                     </h4>
                 </div>
             </div>
@@ -151,7 +152,7 @@
                         </div>
                         <div class="text-box">
                             <h4 class="icon-title card-title mbr-black mbr-fonts-style display-7">
-                                <strong id="stepDate"></strong>
+                                <div id="stepDate"></div>
                             </h4>
                             <h5 class="icon-text mbr-black mbr-fonts-style display-4" id="stepDescription"></h5>
                         </div>
@@ -221,11 +222,12 @@
             }
 
             const searchButton = document.getElementById('search-button');
+            const url = "https://donut.strain-team.com/api/track";
 
             searchButton.disabled = true;
             searchButton.innerText = 'Buscando...';
 
-            const response = await fetch(`https://donut.strain-team.com/api/track`, {
+            const response = await fetch(url, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -242,6 +244,9 @@
             } else {
                 document.getElementById('statusLabel').innerText = data.status;
                 document.getElementById('dateLabel').innerText = data.date;
+                document.getElementById('trackLabel').innerText = data.track;
+                document.getElementById('guideLabel').innerText = data.guide;
+                document.getElementById('infoLabel').innerText = data.info;
                 document.getElementById('content4-9').style.display = 'block';
 
                 const reverseHistory = data.history.reverse();
