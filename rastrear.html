@@ -89,7 +89,7 @@
 
             <div class="row justify-content-center mt-4">
                 <div class="col-lg-8 mx-auto mbr-form">
-                    <form action="#" method="POST" data-rcpha_sitekey="" data-rcpha_secretkey=""
+                    <form id="searchForm" data-rcpha_sitekey="" data-rcpha_secretkey=""
                         class="mbr-form form-with-styler mx-auto" data-verified="">
                         <div class="row">
                             <div hidden="hidden" data-form-alert-danger="" class="alert alert-danger col-12">
@@ -114,7 +114,7 @@
         </div>
     </section>
 
-    <section data-bs-version="5.1" class="content4 cid-u5IFkNwDwi" id="content4-9" style="display: none;">
+    <section data-bs-version="5.1" class="content4 cid-u5IFkNwDwi" id="content4-9" style="display: block; min-height: 30vh;">
         <div class="container">
             <section style="width: 100%; display: none; align-items: center; justify-content: center; margin-bottom: 2rem;" id="imageStatusContainer">
                 <img src="" alt="" style="max-width: 10rem;" id="imageStatus">
@@ -122,9 +122,7 @@
             <div class="row justify-content-center">
                 <div class="title col-md-12 col-lg-10">
                     <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2">
-                        <strong id="statusLabel">
-                            status
-                        </strong>
+                        <strong id="statusLabel"></strong>
                     </h3>
                     <h4 class="mbr-section-subtitle align-center mbr-fonts-style mb-4 display-7">
                         <div id="dateLabel"></div>
@@ -137,7 +135,7 @@
         </div>
     </section>
 
-    <section data-bs-version="5.1" class="features21 cid-u5IGi2qLV2" id="features21-c" style="display: block;">
+    <section data-bs-version="5.1" class="features21 cid-u5IGi2qLV2" id="features21-c" style="display: none;">
         <div class="container">
             <div class="row justify-content-center">
 
@@ -213,6 +211,11 @@
 
 
     <script>
+        document.getElementById('searchForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            searchNumber();
+        });
+
         async function searchNumber() {
             const number = document.getElementById('name-form6-7').value;
 
@@ -248,6 +251,7 @@
                 document.getElementById('guideLabel').innerText = data.guide;
                 document.getElementById('infoLabel').innerText = data.info;
                 document.getElementById('content4-9').style.display = 'block';
+                document.getElementById('features21-c').style.display = 'block';
 
                 const reverseHistory = data.history.reverse();
 
