@@ -78,10 +78,14 @@
         </nav>
     </section>
 
-    <section data-bs-version="5.1" class="form6 cid-u5IdJV8KQe" id="form6-7">
+    <section data-bs-version="5.1" class="form6 cid-u5IdJV8KQe" id="form6-7" style="padding-top: 8rem !important;">
 
 
         <div class="container-fluid">
+
+            <section style="width: 100%; display: flex; align-items: center; justify-content: center; margin-bottom: 4rem;">
+                <img src="assets/images/brand.jpeg" alt="" style="max-width: 30rem; border-radius: 1rem;">
+            </section>
 
             <div class="row justify-content-center mt-4">
                 <div class="col-lg-8 mx-auto mbr-form">
@@ -112,6 +116,9 @@
 
     <section data-bs-version="5.1" class="content4 cid-u5IFkNwDwi" id="content4-9" style="display: none;">
         <div class="container">
+            <section style="width: 100%; display: none; align-items: center; justify-content: center; margin-bottom: 2rem;" id="imageStatusContainer">
+                <img src="" alt="" style="max-width: 10rem;" id="imageStatus">
+            </section>
             <div class="row justify-content-center">
                 <div class="title col-md-12 col-lg-10">
                     <h3 class="mbr-section-title mbr-fonts-style align-center mb-4 display-2">
@@ -129,7 +136,7 @@
         </div>
     </section>
 
-    <section data-bs-version="5.1" class="features21 cid-u5IGi2qLV2" id="features21-c" style="display: none;">
+    <section data-bs-version="5.1" class="features21 cid-u5IGi2qLV2" id="features21-c" style="display: block;">
         <div class="container">
             <div class="row justify-content-center">
 
@@ -154,16 +161,9 @@
         </div>
     </section>
 
-    <section style="width: 100%; display: flex; align-items: center; justify-content: center;">
-        <img src="assets/images/search.png" alt="" style="max-width: 30rem;">
-    </section>
+
 
     <section data-bs-version="5.1" class="footer3 cid-sFCygHrmNf" once="footers" id="footer3-6">
-
-
-
-
-
         <div class="container">
             <div class="row align-center mbr-white">
 
@@ -257,6 +257,9 @@
                         newElement.querySelector('#stepDescription').innerText = element.title;
                         document.getElementById('features21-c').appendChild(newElement);
                     });
+
+                    document.getElementById('imageStatusContainer').style.display = 'flex';
+                    document.getElementById('imageStatus').src = data.image;
                 }
             }
 
