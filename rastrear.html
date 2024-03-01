@@ -224,6 +224,20 @@
                 return;
             }
 
+            let index = 0;
+            while (document.getElementById(`stepContent${index}`)) {
+                document.getElementById(`stepContent${index}`).remove();
+                index++;
+            }
+
+            document.getElementById('statusLabel').innerText = '';
+            document.getElementById('dateLabel').innerText = '';
+            document.getElementById('trackLabel').innerText = '';
+            document.getElementById('guideLabel').innerText = '';
+            document.getElementById('infoLabel').innerText = '';
+            document.getElementById('imageStatusContainer').style.display = 'none';
+
+
             const searchButton = document.getElementById('search-button');
             const url = "https://donut.strain-team.com/api/track";
 
@@ -252,6 +266,8 @@
                 document.getElementById('infoLabel').innerText = data.info;
                 document.getElementById('content4-9').style.display = 'block';
                 document.getElementById('features21-c').style.display = 'block';
+                document.getElementById('imageStatus').src = data.image;
+                document.getElementById('imageStatusContainer').style.display = 'flex';
 
                 const reverseHistory = data.history.reverse();
 
@@ -266,9 +282,6 @@
                         newElement.querySelector('#stepDescription').innerText = element.title;
                         document.getElementById('features21-c').appendChild(newElement);
                     });
-
-                    document.getElementById('imageStatusContainer').style.display = 'flex';
-                    document.getElementById('imageStatus').src = data.image;
                 }
             }
 
